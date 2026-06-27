@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-canvas text-slate-100;
+  }
+
+  body {
+    @apply antialiased;
+  }
+
+  * {
+    @apply border-canvas-border;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-canvas;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-canvas-elevated rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-600;
+  }
+}
+
+@layer components {
+  /* Card */
+  .card {
+    @apply bg-canvas-surface border border-canvas-border rounded-xl shadow-card;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-200 hover:border-brand/40 hover:shadow-glow;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg 
+           bg-brand text-white font-medium text-sm
+           hover:bg-brand-light transition-colors duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-lg
+           text-slate-400 text-sm font-medium
+           hover:bg-canvas-elevated hover:text-slate-200 
+           transition-colors duration-150;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium;
+  }
+
+  .badge-indigo {
+    @apply badge bg-brand/10 text-brand-light;
+  }
+
+  .badge-emerald {
+    @apply badge bg-metric-positive/10 text-metric-positive;
+  }
+
+  .badge-amber {
+    @apply badge bg-metric-warning/10 text-metric-warning;
+  }
+
+  .badge-red {
+    @apply badge bg-metric-danger/10 text-metric-danger;
+  }
+
+  /* Input */
+  .input {
+    @apply w-full bg-canvas-elevated border border-canvas-border rounded-lg 
+           px-3 py-2 text-sm text-slate-200 placeholder-slate-500
+           focus:outline-none focus:ring-1 focus:ring-brand focus:border-brand
+           transition-colors duration-150;
+  }
+
+  /* Table */
+  .data-table {
+    @apply w-full text-sm;
+  }
+
+  .data-table thead th {
+    @apply px-4 py-3 text-left text-xs font-semibold text-slate-400 
+           uppercase tracking-wider border-b border-canvas-border;
+  }
+
+  .data-table tbody tr {
+    @apply border-b border-canvas-border transition-colors hover:bg-canvas-elevated;
+  }
+
+  .data-table tbody td {
+    @apply px-4 py-3 text-slate-300;
+  }
+
+  /* Skeleton shimmer */
+  .skeleton {
+    @apply bg-canvas-elevated rounded animate-pulse;
+    background: linear-gradient(
+      90deg,
+      theme('colors.canvas.elevated') 25%,
+      theme('colors.canvas.border') 50%,
+      theme('colors.canvas.elevated') 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+}
+
+/* Recharts theme overrides */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #1E2D3D;
+}
+
+.recharts-text {
+  fill: #94a3b8 !important;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
