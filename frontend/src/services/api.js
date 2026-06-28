@@ -7,7 +7,7 @@
 
 import axios from "axios";
 
-const BASE_URL = import.meta.env.VITE_API_URL || "https://dataflow.manaazirrayyaan.in";
+const BASE_URL = import.meta.env.VITE_API_URL || "https://dataflow-zcdh.onrender.com/";
 
 const api = axios.create({
   baseURL: BASE_URL,
