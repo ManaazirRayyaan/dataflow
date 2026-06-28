@@ -67,7 +67,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",   # Vite dev
         "http://localhost:3000",   # alternative dev port
-        "http://frontend:80",      # Docker service
+        "http://frontend:80",    # Docker service
+        "https://dataflow.manaazirrayyaan.in",         
     ],
     allow_credentials=True,
     allow_methods=["*"],
